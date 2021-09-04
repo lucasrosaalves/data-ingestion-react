@@ -1,5 +1,5 @@
 import { useState, ChangeEvent } from "react";
-import { MenuItem, Paper, TextField } from "@material-ui/core";
+import { Paper } from "@material-ui/core";
 import "./styles.scss";
 import FieldsSelecion from "./components/fields-selection";
 import AvailableFields from "./components/available-fields";
