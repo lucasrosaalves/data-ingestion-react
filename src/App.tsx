@@ -1,8 +1,7 @@
 import './App.scss';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { useState } from 'react';
-import TopBar from './presentation/components/TopBar/Index';
-import AppDrawer from './presentation/components/AppDrawer/Index';
+import { AppDrawer, TopBar } from './presentation/components';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
