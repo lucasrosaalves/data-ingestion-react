@@ -27,7 +27,6 @@ function App() {
 
         <main className={classes.content}>
           <div className={classes.toolbar} />
-
           <Routes />
         </main>
       </div>
