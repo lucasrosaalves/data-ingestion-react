@@ -24,7 +24,7 @@ function AppDrawer(props: Props) {
   const theme = useTheme();
 
   const routes = [
-    { key: 1, name: "Data Ingestion", route: "/", icon: <InboxIcon /> },
+    { key: 1, name: "Data Ingestion", route: "/data-ingestion", icon: <InboxIcon /> },
     { key: 2, name: "Templates", route: "/templates", icon: <MailIcon /> },
   ];
   return (
@@ -58,13 +58,6 @@ function AppDrawer(props: Props) {
             <ListItemText primary={r.name} />
           </ListItem>
         ))}
-
-        {/* {['Data Ingestion', 'Templates'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))} */}
       </List>
     </Drawer>
   );

@@ -8,6 +8,9 @@ function Routes() {
         <Templates />
       </Route>
       <Route path="/templates">
+        <Templates />
+      </Route>
+      <Route path="/data-ingestion">
         <DataIngestion />
       </Route>
     </Switch>
