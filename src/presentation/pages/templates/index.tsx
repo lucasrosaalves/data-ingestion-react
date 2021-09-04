@@ -1,6 +1,8 @@
 import { useState, ChangeEvent } from "react";
 import { MenuItem, Paper, TextField } from "@material-ui/core";
 import "./styles.scss";
+import FieldsSelecion from "./components/fields-selection";
+import AvailableFields from "./components/available-fields";
 
 const assetTypes = [
   { id: "1", name: "Injection Point" },
@@ -27,38 +29,8 @@ function Templates() {
     <div className="container-fluid">
       <h3> New Template</h3>
           <Paper className="paper p-2">
-            <div className="row w-100">
-              <div className="col-12 col-md-6 my-3 px-3">
-                <TextField
-                  label="My Template Name"
-                  id="templateName"
-                  onChange={handleChange}
-                  inputProps={{
-                    name: "templateName",
-                    id: "templateName",
-                  }}
-                />
-              </div>
-
-              <div className="col-12 col-md-6 my-3 px-3">
-                <TextField 
-                  id="assetType"
-                  select
-                  label="Asset Types"
-                  value={state.assetType}
-                  onChange={handleChange}
-                  inputProps={{
-                    name: "assetType",
-                    id: "assetType",
-                  }}
-                  variant="outlined"
-                >
-                  {assetTypes.map((a) => {
-                    return <MenuItem value={a.id} key={a.id}>{a.name}</MenuItem >;
-                  })}
-                </TextField>
-              </div>
-            </div>
+            <FieldsSelecion assetTypes={assetTypes} selectedAssetType={state.assetType} handleChange={handleChange} />
+            <AvailableFields/>
           </Paper>
     </div>
   );
