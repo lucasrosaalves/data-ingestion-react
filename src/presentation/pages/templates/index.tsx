@@ -1,66 +1,68 @@
-import {useState,ChangeEvent} from 'react';
+import { useState, ChangeEvent } from "react";
 import { Paper, TextField } from "@material-ui/core";
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import './styles.scss';
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    paper: {
-        minHeight: 600
-    },
-    select: {
-      minWidth: 200,
-    }
-  }),
-);
-
+import "./styles.scss";
 
 const assetTypes = [
-    { id: '1', name: 'Injection Point'},
-    { id: '2', name: 'Well'}
-]
+  { id: "1", name: "Injection Point" },
+  { id: "2", name: "Well" },
+];
 
 function Templates() {
-    const classes = useStyles();
-    const [state, setState] = useState<{ assetType: string | number; name: string }>({
-        assetType: '',
-        name: 'hai',
-      });
-    
-      const handleChange = (event: ChangeEvent<{ name?: string; value: unknown }>) => {
-        const name = event.target.name as keyof typeof state;
-        setState({
-          ...state,
-          [name]: event.target.value,
-        });
-      };
+  const [state, setState] = useState<{ assetTypes: string; templateName: string }>({
+    assetTypes: "",
+    templateName: "",
+  });
+
+  const handleChange = (
+    event: ChangeEvent<{ name?: string; value: unknown }>
+  ) => {
+    const name = event.target.name as keyof typeof state;
+    setState({
+      ...state,
+      [name]: event.target.value,
+    });
+  };
 
   return (
-    <div className="content">
+    <div className="container-fluid">
       <h3> New Template</h3>
-      <Paper className={classes.paper}>
-          
-        <div >
-        <TextField className={classes.select}
-          id="assetTypes"
-          select
-          label="Asset Types"
-          value={state.assetType}
-          onChange={handleChange}
-          inputProps={{
-            name: 'assetType',
-            id: 'assetTypes',
-          }}
-          variant="outlined"
-        >
-          <option aria-label="None" value="" />
 
-            {assetTypes.map(a => {
-                return (<option value={a.id}>{a.name}</option>)
-            })}
-        </TextField>
-      </div>
-      </Paper>
+          <Paper className="paper p-2">
+            <div className="row w-100">
+              <div className="col-12 col-md-6 my-3 px-3">
+                <TextField
+                  label="My Template Name"
+                  id="templateName"
+                  onChange={handleChange}
+                  inputProps={{
+                    name: "templateName",
+                    id: "templateName",
+                  }}
+                />
+              </div>
+
+              <div className="col-12 col-md-6 my-3 px-3">
+                <TextField 
+                  id="assetTypes"
+                  select
+                  label="Asset Types"
+                  value={state.assetTypes}
+                  onChange={handleChange}
+                  inputProps={{
+                    name: "assetTypes",
+                    id: "assetTypes",
+                  }}
+                  variant="outlined"
+                >
+                  <option aria-label="None" value="" />
+
+                  {assetTypes.map((a) => {
+                    return <option value={a.id}>{a.name}</option>;
+                  })}
+                </TextField>
+              </div>
+            </div>
+          </Paper>
     </div>
   );
 }
