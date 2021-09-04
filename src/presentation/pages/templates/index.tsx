@@ -1,5 +1,5 @@
 import { useState, ChangeEvent } from "react";
-import { Paper } from "@material-ui/core";
+import { Button, Paper } from "@material-ui/core";
 import "./styles.scss";
 import FieldsSelecion from "./components/fields-selection";
 import AvailableFields from "./components/available-fields";
@@ -10,7 +10,10 @@ const assetTypes = [
 ];
 
 function Templates() {
-  const [state, setState] = useState<{ assetType: string; templateName: string }>({
+  const [state, setState] = useState<{
+    assetType: string;
+    templateName: string;
+  }>({
     assetType: "",
     templateName: "",
   });
@@ -28,10 +31,22 @@ function Templates() {
   return (
     <div className="container-fluid">
       <h3> New Template</h3>
-          <Paper className="paper p-2">
-            <FieldsSelecion assetTypes={assetTypes} selectedAssetType={state.assetType} handleChange={handleChange} />
-            <AvailableFields/>
-          </Paper>
+      <Paper className="paper p-2">
+        <FieldsSelecion
+          assetTypes={assetTypes}
+          selectedAssetType={state.assetType}
+          handleChange={handleChange}
+        />
+        <AvailableFields />
+
+        <div className="row  justify-content-end my-2">
+          <div className="col-12 col-md-2">
+            <Button variant="contained" color="primary" size="large" className="save-button">
+              Save
+            </Button>
+          </div>
+        </div>
+      </Paper>
     </div>
   );
 }

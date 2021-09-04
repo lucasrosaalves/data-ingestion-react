@@ -1,9 +1,8 @@
 import { useState, ChangeEvent } from "react";
-import { Paper } from "@material-ui/core";
+import { Button, Paper } from "@material-ui/core";
 import "./styles.scss";
 import FieldsSelecion from "./components/fields-selection";
-import HotTable from "@handsontable/react";
-import Handsontable from "handsontable";
+import DataIngestionTable from "./components/table";
 
 const assets = [
   { id: "1", name: "Asset 1" },
@@ -13,15 +12,6 @@ const assets = [
 const templates = [
   { id: "1", name: "Template 1" },
   { id: "2", name: "Template 2" },
-];
-
-const data: any[] = [[], [], []];
-
-const columns: Handsontable.ColumnSettings[] = [
-  { title: "Name" },
-  { title: "Location" },
-  { title: "Date" },
-  { title: "Asset Uptime" },
 ];
 
 function DataIngestion() {
@@ -45,21 +35,7 @@ function DataIngestion() {
       return <></>;
     }
 
-    return (
-      <div id="hot-app">
-        <HotTable
-          settings={{
-            data: data,
-            colHeaders: true,
-            columns: columns,
-            height: "auto",
-            colWidths: 100,
-            className: 'htCenter',
-            licenseKey: "non-commercial-and-evaluation",
-          }}
-        />
-      </div>
-    );
+    return <DataIngestionTable />;
   };
 
   return (
@@ -74,6 +50,19 @@ function DataIngestion() {
           handleChange={handleChange}
         />
         {renderTable()}
+
+        <div className="row  justify-content-end my-2">
+          <div className="col-12 col-md-2">
+            <Button
+              variant="contained"
+              color="primary"
+              size="large"
+              className="save-button"
+            >
+              Save
+            </Button>
+          </div>
+        </div>
       </Paper>
     </div>
   );
