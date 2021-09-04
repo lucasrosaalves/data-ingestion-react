@@ -1,2 +1,2 @@
 export { default as AppDrawer } from "./app-drawer";
-export { default as TopBar } from "./topbar";
+export { default as Header } from "./header";

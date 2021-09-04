@@ -12,7 +12,7 @@ interface Props {
   handleDrawerOpen: (e:  React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-function TopBar(props: Props){
+function Header(props: Props){
     const classes = useStyles();
 
     return (
@@ -42,4 +42,4 @@ function TopBar(props: Props){
     )
 }
 
-export default TopBar;
+export default Header;
