@@ -1,5 +1,5 @@
 import { useState, ChangeEvent } from "react";
-import { Paper, TextField } from "@material-ui/core";
+import { MenuItem, Paper, TextField } from "@material-ui/core";
 import "./styles.scss";
 
 const assetTypes = [
@@ -8,8 +8,8 @@ const assetTypes = [
 ];
 
 function Templates() {
-  const [state, setState] = useState<{ assetTypes: string; templateName: string }>({
-    assetTypes: "",
+  const [state, setState] = useState<{ assetType: string; templateName: string }>({
+    assetType: "",
     templateName: "",
   });
 
@@ -26,7 +26,6 @@ function Templates() {
   return (
     <div className="container-fluid">
       <h3> New Template</h3>
-
           <Paper className="paper p-2">
             <div className="row w-100">
               <div className="col-12 col-md-6 my-3 px-3">
@@ -43,21 +42,19 @@ function Templates() {
 
               <div className="col-12 col-md-6 my-3 px-3">
                 <TextField 
-                  id="assetTypes"
+                  id="assetType"
                   select
                   label="Asset Types"
-                  value={state.assetTypes}
+                  value={state.assetType}
                   onChange={handleChange}
                   inputProps={{
-                    name: "assetTypes",
-                    id: "assetTypes",
+                    name: "assetType",
+                    id: "assetType",
                   }}
                   variant="outlined"
                 >
-                  <option aria-label="None" value="" />
-
                   {assetTypes.map((a) => {
-                    return <option value={a.id}>{a.name}</option>;
+                    return <MenuItem value={a.id} key={a.id}>{a.name}</MenuItem >;
                   })}
                 </TextField>
               </div>
