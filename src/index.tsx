@@ -3,6 +3,7 @@ import './index.scss';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import './infra/i18n/index'
 
 ReactDOM.render(
   <App />,

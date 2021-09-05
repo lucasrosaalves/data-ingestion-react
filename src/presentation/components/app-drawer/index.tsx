@@ -13,6 +13,7 @@ import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import { useStyles } from "./styles";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   open: boolean;
@@ -20,12 +21,14 @@ interface Props {
 }
 
 function AppDrawer(props: Props) {
+  const {t} = useTranslation();
+
   const classes = useStyles();
   const theme = useTheme();
 
   const routes = [
-    { key: 1, name: "Data Ingestion", route: "/data-ingestion", icon: <InboxIcon /> },
-    { key: 2, name: "Templates", route: "/templates", icon: <MailIcon /> },
+    { key: 1, name: t('sideMenu.dataIngestion'), route: "/data-ingestion", icon: <InboxIcon /> },
+    { key: 2, name: t('sideMenu.templates'), route: "/templates", icon: <MailIcon /> },
   ];
   return (
     <Drawer

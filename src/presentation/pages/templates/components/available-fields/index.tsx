@@ -10,6 +10,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Checkbox from "@material-ui/core/Checkbox";
 import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -41,6 +42,7 @@ function union(a: number[], b: number[]) {
 }
 
 export default function AvailableFields() {
+  const { t } = useTranslation();
   const classes = useStyles();
   const [checked, setChecked] = React.useState<number[]>([]);
   const [left, setLeft] = React.useState<number[]>([0, 1, 2, 3]);
@@ -134,9 +136,10 @@ export default function AvailableFields() {
     </Card>
   );
 
+
   return (
     <Grid container spacing={2} justifyContent="center" alignItems="center">
-      <Grid item>{customList("Available Fields", left)}</Grid>
+      <Grid item>{customList(t('templatesPage.labelAvailableFields'), left)}</Grid>
       <Grid item>
         <Grid container direction="column" alignItems="center">
           <Button
@@ -161,7 +164,7 @@ export default function AvailableFields() {
           </Button>
         </Grid>
       </Grid>
-      <Grid item>{customList("SelectedFields", right)}</Grid>
+      <Grid item>{customList(t('templatesPage.labelSelectedFields'), right)}</Grid>
     </Grid>
   );
 }

@@ -1,0 +1,20 @@
+{
+    "companyName": "Radix Engenharia",
+    "templatesPage": {
+        "title": "Novo template",
+        "labelTemplateName": "Meu nome de template",
+        "labelAssetTypes": "Tipos de asset",
+        "labelAvailableFields": "Campos Disponíveis",
+        "labelSelectedFields": "Campos Selecionados"
+    },
+    "dataIngestionPage":{
+        "title": "Ingestão de Dados",
+        "labelAssets": "Assets",
+        "labelTemplates": "Templates"
+    },
+    "sideMenu": {
+        "dataIngestion": "Ingestão de Dados",
+        "templates": "Templates"
+    },
+    "saveButton": "Salvar"
+}

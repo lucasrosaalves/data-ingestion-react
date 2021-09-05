@@ -6,6 +6,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { useStyles } from "./styles";
 import { Select } from "@material-ui/core";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   open: boolean;
@@ -16,6 +17,8 @@ interface Props {
 }
 
 function Header(props: Props) {
+  const { t } = useTranslation();
+  
   const classes = useStyles();
 
   return (
@@ -38,7 +41,7 @@ function Header(props: Props) {
           <MenuIcon />
         </IconButton>
         <Typography variant="h6" noWrap>
-          Radix Engenharia
+          {t('companyName')}
         </Typography>
       </Toolbar>
       <Select
@@ -56,3 +59,4 @@ function Header(props: Props) {
 }
 
 export default Header;
+

@@ -4,6 +4,7 @@ import { useStyles } from "./AppStyles";
 import Routes from "./presentation/routes";
 import { Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
+import i18next  from "i18next";
 
 const history = createBrowserHistory();
 
@@ -20,17 +21,19 @@ function App() {
   };
 
   const languageKey: string = "current-language";
-  const availableLanguages: string[] = ["en-US", "pt-BR"];
+  const availableLanguages: string[] = ["en", "pt"];
 
   const [language, setLanguage] = useState("");
 
   useEffect(() => {
-    const language = localStorage.getItem(languageKey);
-    setLanguage(language ?? "en-US");
+    const language = localStorage.getItem(languageKey) ?? "en";
+    i18next.changeLanguage(language);
+    setLanguage(language);
   }, []);
 
   const changeLanguage = (language: string) => {
     localStorage.setItem(languageKey, language);
+    i18next.changeLanguage(language);
     setLanguage(language);
     window.location.reload();
   };

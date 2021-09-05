@@ -3,6 +3,7 @@ import { Button, Paper } from "@material-ui/core";
 import "./styles.scss";
 import FieldsSelecion from "./components/fields-selection";
 import AvailableFields from "./components/available-fields";
+import { useTranslation } from "react-i18next";
 
 const assetTypes = [
   { id: "1", name: "Injection Point" },
@@ -10,6 +11,8 @@ const assetTypes = [
 ];
 
 function Templates() {
+  const { t } = useTranslation();
+
   const [state, setState] = useState<{
     assetType: string;
     templateName: string;
@@ -30,7 +33,7 @@ function Templates() {
 
   return (
     <div className="container-fluid">
-      <h3> New Template</h3>
+      <h3> {t('templatesPage.title')}</h3>
       <Paper className="paper p-2">
         <FieldsSelecion
           assetTypes={assetTypes}
@@ -42,7 +45,7 @@ function Templates() {
         <div className="row  justify-content-end my-2">
           <div className="col-12 col-md-2">
             <Button variant="contained" color="primary" size="large" className="save-button">
-              Save
+              {t('saveButton')}
             </Button>
           </div>
         </div>

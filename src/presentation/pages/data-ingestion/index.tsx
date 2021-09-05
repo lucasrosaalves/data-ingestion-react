@@ -3,6 +3,7 @@ import { Button, Paper } from "@material-ui/core";
 import "./styles.scss";
 import FieldsSelecion from "./components/fields-selection";
 import DataIngestionTable from "./components/table";
+import { useTranslation } from "react-i18next";
 
 const assets = [
   { id: "1", name: "Asset 1" },
@@ -15,6 +16,8 @@ const templates = [
 ];
 
 function DataIngestion() {
+  const {t} = useTranslation();
+
   const [state, setState] = useState<{ asset: string; template: string }>({
     asset: "",
     template: "",
@@ -40,7 +43,7 @@ function DataIngestion() {
 
   return (
     <div className="container-fluid">
-      <h3> Data Ingestion</h3>
+      <h3> {t('dataIngestionPage.title')}</h3>
       <Paper className="paper p-2">
         <FieldsSelecion
           assets={assets}
@@ -59,7 +62,7 @@ function DataIngestion() {
               size="large"
               className="save-button"
             >
-              Save
+              {t('saveButton')}
             </Button>
           </div>
         </div>

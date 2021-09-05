@@ -1,5 +1,6 @@
 import { MenuItem, TextField } from "@material-ui/core";
 import "./styles.scss";
+import { useTranslation } from "react-i18next";
 
 interface AssetTypes {
   id: string;
@@ -13,11 +14,13 @@ interface Props {
 }
 
 function FieldsSelecion(props: Props) {
+  const {t} = useTranslation();
+
   return (
     <div className="row w-100">
       <div className="col-12 col-md-6 my-3 px-3">
         <TextField
-          label="My Template Name"
+          label={t('templatesPage.labelTemplateName')}
           id="templateName"
           onChange={props.handleChange}
           inputProps={{
@@ -31,7 +34,7 @@ function FieldsSelecion(props: Props) {
         <TextField
           id="assetType"
           select
-          label="Asset Types"
+          label={t('templatesPage.labelAssetTypes')}
           value={props.selectedAssetType}
           onChange={props.handleChange}
           inputProps={{
