@@ -10,6 +10,9 @@ export const useStyles = makeStyles((theme: Theme) =>
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }),
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between'
     },
     appBarShift: {
       marginLeft: drawerWidth,
@@ -29,6 +32,9 @@ export const useStyles = makeStyles((theme: Theme) =>
       width: drawerWidth,
       flexShrink: 0,
       whiteSpace: 'nowrap',
+    },
+    languageSelect: {
+      color: 'white !important'
     }
   }),
 );
