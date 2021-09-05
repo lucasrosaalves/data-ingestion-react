@@ -2,11 +2,8 @@ import { useEffect, useState } from "react";
 import { AppDrawer, Header } from "./presentation/components";
 import { useStyles } from "./AppStyles";
 import Routes from "./presentation/routes";
-import { Router } from "react-router-dom";
-import { createBrowserHistory } from "history";
+import { HashRouter } from "react-router-dom";
 import i18next  from "i18next";
-
-const history = createBrowserHistory();
 
 function App() {
   const classes = useStyles();
@@ -39,7 +36,7 @@ function App() {
   };
 
   return (
-    <Router history={history}>
+    <HashRouter basename="/">
       <div className={classes.root}>
         <Header
           open={open}
@@ -55,7 +52,7 @@ function App() {
           <Routes />
         </main>
       </div>
-    </Router>
+    </HashRouter>
   );
 }
 
