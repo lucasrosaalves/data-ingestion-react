@@ -32,7 +32,7 @@ function Templates() {
   };
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid px-0">
       <h3> {t('templatesPage.title')}</h3>
       <Paper className="paper p-2">
         <FieldsSelecion

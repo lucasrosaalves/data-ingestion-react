@@ -13,6 +13,9 @@ function Routes() {
       <Route path="/data-ingestion">
         <DataIngestion />
       </Route>
+      <Route path='*'>
+      <Templates />
+      </Route>
     </Switch>
   );
 }

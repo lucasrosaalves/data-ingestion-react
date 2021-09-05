@@ -138,7 +138,7 @@ export default function AvailableFields() {
 
 
   return (
-    <Grid container spacing={2} justifyContent="center" alignItems="center">
+    <Grid container spacing={2} justifyContent="center" alignItems="center" className="flex-column flex-md-row">
       <Grid item>{customList(t('templatesPage.labelAvailableFields'), left)}</Grid>
       <Grid item>
         <Grid container direction="column" alignItems="center">
